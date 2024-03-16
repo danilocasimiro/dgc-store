@@ -1,0 +1,34 @@
+# Configurações gerais
+AllCops:
+  TargetRubyVersion: 3.3
+  SuggestExtensions: false
+  Exclude:
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - config/**/*
+    - config/*
+    - bin/*
+# Configurações para as categorias de estilos
+# Algumas dessas categorias podem estar desativadas por padrão
+# e precisam ser ativadas manualmente se desejar usá-las.
+# Por exemplo, para ativar a categoria `Rails`:
+# Rails:
+#   Enabled: true
+# Categorias de estilo específicas
+Layout/LineLength:
+  Max: 80
+
+# Configurações de algumas categorias comuns
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Configurações para Rails (ativar manualmente se necessário)
+# Rails:
+#   Enabled: true
+
+# Configurações para RSpec (ativar manualmente se necessário)
+# RSpec:
+#   Enabled: true

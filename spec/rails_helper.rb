@@ -8,7 +8,7 @@ require_relative '../config/environment'
 if Rails.env.production?
   abort('The Rails environment is running in production mode!')
 end
-
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 require 'rspec/rails'
 require 'factory_bot_rails'
 # Add additional requires below this line. Rails is not loaded until this point!
@@ -44,6 +44,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.include JwtHelper
   config.include FactoryBot::Syntax::Methods
   config.include(Shoulda::Matchers::ActiveModel, type: :model)
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)

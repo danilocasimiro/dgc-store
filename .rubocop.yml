@@ -8,6 +8,13 @@ AllCops:
     - config/**/*
     - config/*
     - bin/*
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/requests/**/**/*'
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/requests/**/**/*'
+    - 'spec/models/*'
 # Configurações para as categorias de estilos
 # Algumas dessas categorias podem estar desativadas por padrão
 # e precisam ser ativadas manualmente se desejar usá-las.

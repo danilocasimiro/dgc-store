@@ -4,9 +4,12 @@ source 'https://rubygems.org'
 
 ruby '3.3.0'
 
+gem 'faker', '~> 3.2'
+gem 'figaro', '~> 1.2'
 gem 'mysql2', '~> 0.5'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.2'
+gem 'simplecov', '~> 0.22.0'
 
 # gem 'jbuilder'
 
@@ -28,7 +31,10 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', require: false
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do

@@ -27,7 +27,15 @@ module Api
         end
 
         def current_company_id
-          feth_decoded_jwt.first.dig('user', 'company_id')
+          company_id = feth_decoded_jwt.first.dig('user', 'company_id')
+
+          return '' unless company_id
+
+          Company.find_by(owner_id: company_id)&.id
+        end
+
+        def user_authenticate?
+          feth_decoded_jwt
         end
 
         def current_user

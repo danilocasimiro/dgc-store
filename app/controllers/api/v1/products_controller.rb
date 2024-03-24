@@ -5,12 +5,17 @@ module Api
     class ProductsController < ApplicationController
       include Concerns::CompanyContext
 
-      before_action :set_resource, only: %i[update destroy]
+      before_action :set_resource, only: %i[show update destroy]
 
       def index
-        @models = model_class.with_company_id(company_id_param)
+        company = Company.find_by(owner_id: company_id_param)
+        @models = model_class.with_company_id(company&.id)
 
         render json: paginate(@models)
+      end
+
+      def show
+        render json: @model.as_json(include: include_associations)
       end
 
       def create

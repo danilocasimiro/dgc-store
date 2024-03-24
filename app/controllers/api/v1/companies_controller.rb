@@ -3,7 +3,7 @@
 module Api
   module V1
     class CompaniesController < ApplicationController
-      include Concerns::CompanyContext
+      include Concerns::UserContext
 
       before_action :set_resource, only: %i[update destroy]
 
